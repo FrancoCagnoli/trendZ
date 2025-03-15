@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trendZ - Emprende con tu marca</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="login-container" style="display: none;">
+        <h2 id="login-title">Iniciar Sesión</h2>
+        
+        <!-- Formulario de inicio de sesión -->
+        <div id="login-form">
+            <input type="text" id="login-username" placeholder="Usuario">
+            <input type="password" id="login-password" placeholder="Contraseña">
+            <button onclick="login()">Ingresar</button>
+            <p id="error-message" class="error"></p>
+            <p>¿No tienes cuenta?<a href="#" onclick="mostrarRegistro()">¡Regístrate!</a></p>
+        </div>
+    
+        <!-- Formulario de registro (inicialmente oculto) -->
+        <div id="registro-form" style="display: none;">
+            <input type="text" id="register-username" placeholder="Nuevo Usuario">
+            <input type="password" id="register-password" placeholder="Contraseña">
+            <input type="text" id="register-mail" placeholder="Correo Electrónico">
+            <button onclick="registrar()">Registrarse</button>
+            <p id="registro-error-message" class="error"></p>
+            <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
+        </div>
+    
+        <button onclick="irAlInicio()" class="cerrar-btn">Cerrar</button>
+    </div>
+    
+    
+    <div id="main-content" style="display: block;">
+        <header>
+            <img src="imagenes/captura logo negro.PNG" onclick="irAlLogin()">
+            <div class="text-container">crea tu propio Zueño</div>
+            <button class="registro-btn" onclick="irAlLogin()">Regístrate</button>
+            <img class="loguito" src="imagenes/heart.png" >
+            <img class="loguito" src="imagenes/kombi.png"> 
+        </header>
+        <section class="busqueda">
+            <input type="text" id="search-bar" placeholder="Buscar productos...">
+            <div class="filtros">
+                <button onclick="filtrarProductos('hombres')">Hombres</button>
+                <button onclick="filtrarProductos('mujeres')">Mujeres</button>
+                <button onclick="filtrarProductos('niños')">Niños</button>
+                <button onclick="filtrarProductos('ropa')">Ropa</button>
+                <button onclick="filtrarProductos('trendz')">TrendZ</button>
+            </div>
+        </section>
+        
+        <section class="productos">
+            <div class="producto">
+                <img src="imagenes/p1.jpg" alt="Hoodie">
+                <p>Hoodie Flamme</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p2.jpeg" alt="Producto 2">
+                <p> OBLOCK chain</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p3.png" alt="Producto 3">
+                <p>NBA shorts</p>
+            </div>
+            <br>
+            <br>
+            <div class="producto">
+                <img src="imagenes/p4.jpg" alt="Producto 4">
+                <p>Vestido vintage</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p5.jpg" alt="Producto 5">
+                <p>Remera CactusJack</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p6.jpg" alt="Producto 6">
+                <p>Macetas para cactus</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p7.jpg" alt="Producto 7">
+                <p>Remera CowboyBebop</p>
+            </div>
+            <div class="producto">
+                <img src="imagenes/p8.jpeg" alt="Producto 8">
+                <p>Jordan Retro 4</p>
+            </div>
+        </section>
+        <footer>
+            &copy; 2025 trendZ - Todos los derechos reservados
+        </footer>
+    </div>
+    <script src="js/code.js"></script>
+</body>
+</html>

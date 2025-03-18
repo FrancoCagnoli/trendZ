@@ -71,3 +71,51 @@ async function registrar() {
         errorMessage.textContent = "Error al registrar usuario.";
     }
 }
+async function publicarProducto() {
+    const name = document.getElementById("product-name").value;
+    const description = document.getElementById("product-description").value;
+    const imageFile = document.getElementById("product-image").files[0];
+
+    if (!name || !description || !imageFile) {
+        document.getElementById("publicar-error-message").textContent = "Todos los campos son obligatorios.";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("image", imageFile);
+
+    const response = await fetch("/publicar", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+    if (data.success) {
+        cargarProductos(); // Recargar productos para que aparezca el nuevo
+    } else {
+        document.getElementById("publicar-error-message").textContent = "Error al publicar el producto.";
+    }
+}
+async function cargarProductos() {
+    const response = await fetch("/productos");
+    const productos = await response.json();
+
+    const contenedorProductos = document.querySelector(".productos");
+    contenedorProductos.innerHTML = ""; // Limpiar antes de agregar nuevos
+
+    productos.forEach(producto => {
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+            <img src="${producto.imageUrl}" alt="${producto.name}">
+            <p>${producto.name}</p>
+            <p>${producto.description}</p>
+        `;
+        contenedorProductos.appendChild(div);
+    });
+}
+
+// Cargar productos al inicio
+window.onload = cargarProductos;

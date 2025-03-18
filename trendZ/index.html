@@ -51,6 +51,15 @@
                 <button onclick="filtrarProductos('trendz')">TrendZ</button>
             </div>
         </section>
+        <div id="publicar-producto">
+            <h2>Publicar un Producto</h2>
+            <input type="text" id="product-name" placeholder="Nombre del producto">
+            <textarea id="product-description" placeholder="Descripción"></textarea>
+            <input type="file" id="product-image">
+            <button onclick="publicarProducto()">Publicar</button>
+            <p id="publicar-error-message" class="error"></p>
+        </div>
+        
         
         <section class="productos">
             <div class="producto">
